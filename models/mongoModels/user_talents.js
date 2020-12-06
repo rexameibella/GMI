@@ -10,4 +10,4 @@ const TalentSchema = mongoose.Schema({
 });
 
 // export model auth with TalentSchema
-module.exports = mongoose.model("user_talent", TalentSchema);
+module.exports = mongoose.model("user_talents", TalentSchema);

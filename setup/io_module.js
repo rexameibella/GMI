@@ -1,5 +1,9 @@
 
-module.exports = async function (server_io, PORT_IO) {
+const config = require('../configs')
+const server_io = require('http').createServer();
+const PORT_IO = config.PORT_IO
+
+module.exports = async function () {    
     let activeUsers = new Array
     const io = require('socket.io')(server_io, {
         path: '/',

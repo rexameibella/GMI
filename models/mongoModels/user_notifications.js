@@ -16,4 +16,4 @@ const FriendSchema = mongoose.Schema({
 });
 
 // export model auth with FriendSchema
-module.exports = mongoose.model("user_notification", FriendSchema);
+module.exports = mongoose.model("user_notifications", FriendSchema);

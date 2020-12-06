@@ -6,4 +6,4 @@ const CoinSchema = mongoose.Schema({
 });
 
 // export model auth with CoinSchema
-module.exports = mongoose.model("user_coin", CoinSchema);
+module.exports = mongoose.model("user_coins", CoinSchema);

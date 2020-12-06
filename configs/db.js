@@ -7,4 +7,7 @@ module.exports = {
     password: '',
     dialect: "mariadb"
   },
+  mongoDb : {
+   MONGOURI : `mongodb+srv://${process.env.mongoRexa}:${process.env.mongoPassword}@cluster0.ecaav.mongodb.net/${process.env.mongoDBName}?retryWrites=true&w=majority`
+  }
 };

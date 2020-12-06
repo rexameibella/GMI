@@ -1,5 +1,6 @@
 const express = require('../../models/LandingPage');
 
+
 exports.post = async function (req, res, next) {
     try {
         let create = await express.merchantOrder.create({
@@ -9,8 +10,10 @@ exports.post = async function (req, res, next) {
             industry: req.body.industry,
             phone: req.body.phone
         })
-        res.status(200).send({message:'sukses'});
+
+        res.status(200).send({ message: 'sukses' });
     } catch (error) {
         res.status(500).send(error)
     }
+
 };

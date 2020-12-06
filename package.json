@@ -1,12 +1,15 @@
 {
-  "name": "Test",
+  "name": "test",
   "version": "1.0.0",
   "description": "Software Node for test",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rexa Mei Bella",
+  "author": {
+    "name": "Rexa Mei Bella",
+    "email": "rexameibella@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -24,6 +27,7 @@
     "mongoose": "^5.8.11",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
+    "pdfkit": "^0.11.0",
     "sequelize": "^6.3.5",
     "sequelize-soft-delete": "^1.1.0",
     "socket.io": "^2.3.0"

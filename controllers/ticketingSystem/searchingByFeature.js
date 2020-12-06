@@ -1,6 +1,6 @@
 const express = require('../../models/LandingPage');
 const moment = require('moment')
-exports.post = async function (req, res, next) {
+exports.get = async function (req, res, next) {
     try {
 
         const query = "SELECT t.ticketid AS id ,t.userid , ud.userdetailid, ud.birthdate, ud.jk ,ud.address , u.nameuser  From ticket t \

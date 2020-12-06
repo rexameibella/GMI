@@ -14,25 +14,27 @@ exports.post = async function (req, res, next) {
             type: express.sequelize.QueryTypes.SELECT
         });
 
-        const queryNewTicket = "SELECT * From ticket"
+        const queryNewTicket = "SELECT * From ticket group by ticketid DESC"
 
         let checkerqueryNewTicketIncrement = await express.sequelize.query(queryNewTicket, {
             type: express.sequelize.QueryTypes.SELECT
         });
 
-        console.log(checkerqueryNewTicketIncrement[1])
-        let newUserID = checkerUserIDIncrement[1].userid + 1
-        let newDetailID = checkeruserdetailidIncrement[1].userdetailid + 1
-        let newTicketID = checkerqueryNewTicketIncrement[1].ticketid + 1
+        // console.log(checkerqueryNewTicketIncrement[1])
+        let newUserID = checkerUserIDIncrement[0] ? checkerUserIDIncrement[0].userid + 1 : 1
+        let newDetailID = checkeruserdetailidIncrement[0] ? checkeruserdetailidIncrement[0].userdetailid + 1 : 1
+        let newTicketID = checkerqueryNewTicketIncrement[0] ? checkerqueryNewTicketIncrement[0].ticketid + 1 : 1
 
+        console.log(checkerUserIDIncrement, checkeruserdetailidIncrement, checkerqueryNewTicketIncrement, 'TEST')
 
         let create = await express.users.create({
             userid: newUserID,
             nameuser: req.body.nameuser
         })
+        console.log(create, 'create')
         let createUserDetail = await express.user_detail.create({
             userdetailid: newDetailID,
-            birthdate: moment().toISOString(),
+            birthdate: moment(req.body.birthdate).toISOString(),
             userid: newUserID,
             jk: req.body.jk,
             address: req.body.address
@@ -43,8 +45,9 @@ exports.post = async function (req, res, next) {
         })
 
 
-        res.status(200).send({ message: 'sukses' });
+        res.status(200).send('OK');
     } catch (error) {
-        res.status(500).send(error)
+
+        next(error)
     }
 };

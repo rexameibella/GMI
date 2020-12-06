@@ -8,4 +8,4 @@ const FriendSchema = mongoose.Schema({
 });
 
 // export model auth with FriendSchema
-module.exports = mongoose.model("user_friend", FriendSchema);
+module.exports = mongoose.model("user_friends", FriendSchema);

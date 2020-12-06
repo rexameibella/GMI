@@ -6,13 +6,10 @@ const Sequelize = require('sequelize');
 const config = require('../../configs');
 
 const db = {
-  // UserOrder: null,
-  // UserAuditTrail: null,
   merchantOrder: null,
   users: null,
   user_detail: null,
   ticket: null,
-  // softdeleteTicket:null
 };
 
 const sequelize = new Sequelize(
@@ -46,8 +43,8 @@ fs.readdirSync(__dirname).filter(function (file) {
   return (file.indexOf('.') !== 0) && (file !== 'index.js');
 }).forEach(function (file) {
   var model = require(path.join(__dirname, file))(sequelize, Sequelize)
-
   db[model.name] = model;
+  //console.log(db,'sequilze')
 });
 
 Object.keys(db).forEach(function (modelName) {
