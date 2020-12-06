@@ -28,14 +28,18 @@ module.exports = function (req, res, next) {
 
         res.json({
             status: status.toString(),
-            message: message,
-            data: res.data,
-            meta: {
-                startAt: req.requestTime.format(timeFormat),
-                finishedAt: endTime.format(timeFormat),
-                duration: duration.asMilliseconds() + "ms",
-                requestId: req.requestId,
-            }
+            success: res.data.success ? res.data.success : false,
+            message: res.data.message ? res.data.message : message,
+            pageNow: res.data.pageNow,
+            maxPage: res.data.maxPage,
+            count: res.data.dataCountSend,
+            data: res.data.data,
+            // meta: {
+            //     startAt: req.requestTime.format(timeFormat),
+            //     finishedAt: endTime.format(timeFormat),
+            //     duration: duration.asMilliseconds() + "ms",
+            //     requestId: req.requestId,
+            // }
         })
     };
 
